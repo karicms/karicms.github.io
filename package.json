@@ -1,0 +1,36 @@
+{
+  "name": "karicms-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "fetch-blog": "node scripts/fetch-blog.mjs",
+    "predev": "node scripts/fetch-blog.mjs",
+    "prebuild": "node scripts/fetch-blog.mjs",
+    "dev": "next dev --turbopack",
+    "build": "npx next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.3.2",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3"
+  }
+}
