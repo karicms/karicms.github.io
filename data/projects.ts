@@ -17,7 +17,7 @@ export const projects: Project[] = [
     description:
       "多端联动的毕业设计级智能家居系统：ESP32 执行/感知双板、Spring Boot 后端统一 Topic 路由、Vue 管理端与微信小程序，AI 助手支持自然语言控制灯、门、空调与天气查询。",
     tags: ["ESP32", "MQTT", "Spring Boot", "Spring AI", "Vue 3", "微信小程序"],
-    href: "https://github.com/karicms/AI-HOME",
+    href: "https://github.com/karicms/smarthome",
     status: "active",
     featured: true,
   },
