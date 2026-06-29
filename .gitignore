@@ -34,3 +34,5 @@ next-env.d.ts
 
 # fetched blog clone
 /content/.blog-cache/
+/content/.emu-blog-sync/
+/content/emu-blog-sync/

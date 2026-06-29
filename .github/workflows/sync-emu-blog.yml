@@ -1,0 +1,32 @@
+name: Sync to EMU Blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/blog/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install GitHub CLI
+        run: sudo apt-get update && sudo apt-get install -y gh
+
+      - name: Setup git credentials
+        env:
+          GH_TOKEN: ${{ secrets.EMU_SYNC_TOKEN }}
+        run: gh auth setup-git
+
+      - name: Sync articles to EMU-Stu-Blog
+        env:
+          EMU_SYNC_TOKEN: ${{ secrets.EMU_SYNC_TOKEN }}
+          GH_TOKEN: ${{ secrets.EMU_SYNC_TOKEN }}
+        run: node scripts/sync-to-emu-blog.mjs

@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fetch-blog": "node scripts/fetch-blog.mjs",
-    "predev": "node scripts/fetch-blog.mjs",
-    "prebuild": "node scripts/fetch-blog.mjs",
     "dev": "next dev --turbopack",
     "build": "npx next build",
     "start": "next start",
