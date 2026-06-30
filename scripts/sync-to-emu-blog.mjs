@@ -171,6 +171,10 @@ try {
     process.exit(0);
   }
 
+  // CI runner 无全局 git 身份，commit 前需在仓库内配置
+  execFileSync('git', ['config', 'user.name', 'karicms-sync-bot'], gitOption);
+  execFileSync('git', ['config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], gitOption);
+
   execFileSync('git', ['add', '.'], gitOption);
   execFileSync('git', ['commit', '-m', 'sync: update articles from karicms.github.io'], gitOption);
   execFileSync('git', ['push', '-f', 'origin', 'karicms'], gitOption);

@@ -194,7 +194,7 @@ execFileSync('git', ['checkout', '-B', 'karicms'], gitOption);
 
 **3. 正则捕获组**
 
-匹配 `![](./images/xxx.png)` 时必须用 `([^)]+)` 捕获文件名，否则 `match[1]` 为 `undefined`，`path.join` 直接炸。
+匹配 Markdown 图片路径（形如 `./images/文件名.png`）时，正则需用 `([^)]+)` 捕获文件名，否则 `match[1]` 为 `undefined`，`path.join` 直接炸。
 
 **4. `gh` 与 `git push` 是两套鉴权**
 
