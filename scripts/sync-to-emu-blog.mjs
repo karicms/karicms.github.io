@@ -57,7 +57,8 @@ for (const filename of allFiles) {
   }
 
   console.log(`📌 [命中] [${slug}] labs: ${JSON.stringify(data.labs)}`);
-  fs.writeFileSync(path.join(SYNC_ARTICLES_DIR, filename), fileContent, 'utf-8');
+  const emuContent = rewriteLinksForEmu(fileContent);
+  fs.writeFileSync(path.join(SYNC_ARTICLES_DIR, filename), emuContent, 'utf-8');
   console.log(`   ✅ 已加入同步队列: ${filename}`);
 
   let imageCount = 0;
@@ -233,6 +234,10 @@ function handlePullRequest() {
     { cwd: CLONE_DIR, stdio: 'inherit', env: ghEnv },
   );
   console.log('🎉 PR 已创建');
+}
+
+function rewriteLinksForEmu(content) {
+  return content.replace(/\]\(\/blog\/([a-z0-9-]+)\)/gi, '](/article?slug=$1)');
 }
 
 function getFileHash(filePath) {
